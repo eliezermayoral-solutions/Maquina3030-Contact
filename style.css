@@ -1,0 +1,639 @@
+/* ==========================================================================
+   MÁQUINA 30-30 - OFFICIAL BRAND CONTACT PAGE
+   Brand Palette:
+   - Vibrant Orange: #EF551E
+   - Cream / Parchment: #FFE4B6
+   - Slate Gray: #666567
+   - Pure Black: #000000
+   Typography:
+   - Header: 'Alfa Slab One' (Bobby Jones Woodblock Style)
+   - Accent Script: 'Yellowtail' (Adam Script Style)
+   - Body: 'Plus Jakarta Sans'
+   ========================================================================== */
+
+:root {
+  --color-orange: #EF551E;
+  --color-cream: #FFE4B6;
+  --color-gray: #666567;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  --font-brand-header: 'Alfa Slab One', 'Impact', sans-serif;
+  --font-brand-script: 'Yellowtail', cursive;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --radius-pill: 50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
+  background-color: var(--color-orange); /* Fondo Naranja Oficial */
+  color: #ffffff; /* Letras Blancas */
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Background Artwork matching Instagram feed aesthetic */
+.bg-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--color-orange);
+}
+
+.bg-texture {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-orange);
+  opacity: 1;
+}
+
+/* Accent Stripes: Lines in White and Slate Gray */
+.stripe-orange {
+  position: absolute;
+  top: -8%;
+  left: -20%;
+  width: 130%;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.45); /* Línea Blanco Translúcido */
+  transform: rotate(45deg);
+  transform-origin: top left;
+  z-index: 1;
+}
+
+.stripe-charcoal {
+  position: absolute;
+  bottom: -4%;
+  left: -15%;
+  width: 130%;
+  height: 36px;
+  background-color: var(--color-gray); /* Línea Gris Acero Oficial (#666567) */
+  transform: rotate(-25deg);
+  transform-origin: bottom left;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.bg-glow {
+  display: none;
+}
+
+/* Main Mobile Container */
+.mobile-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 20px 36px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Profile Header Section */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.profile-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Logo completo sin recortar */
+  border-radius: 50%;
+  background-color: #ffffff; /* Fondo blanco limpio para el logo */
+  padding: 10px;
+  border: 4px solid #ffffff; /* Borde blanco plano */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover .profile-logo {
+  transform: scale(1.05);
+}
+
+.logo-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px stroke rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.logo-zoom-icon {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 32px;
+  height: 32px;
+  background: var(--color-gray);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.logo-wrapper:hover .logo-zoom-icon {
+  transform: scale(1.1);
+  background: #ffffff;
+  color: var(--color-orange);
+}
+
+/* Brand Typography */
+.brand-title {
+  font-family: var(--font-brand-header);
+  font-size: 2.2rem;
+  color: #ffffff; /* Letras Blancas */
+  letter-spacing: 1.2px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 4px;
+}
+
+.brand-subtitle {
+  font-family: var(--font-brand-script);
+  font-size: 1.65rem;
+  color: var(--color-cream);
+  line-height: 1.2;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Action Links Section */
+.links-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.btn-link {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 228, 182, 0.2);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+/* Flat Matte Button Styles */
+.btn-link::before {
+  display: none; /* No shimmer overlays for flat design */
+}
+
+.btn-link:active {
+  transform: scale(0.98);
+}
+
+.btn-link:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.btn-icon {
+  font-size: 1.35rem;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.btn-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.btn-arrow {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.btn-link:hover .btn-arrow {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+/* Brand Flat Matte Button Colors */
+
+/* WhatsApp Chat: Flat WhatsApp Green */
+.btn-whatsapp {
+  background-color: #0f5132;
+  border: 1px solid #146c43;
+}
+
+/* WhatsApp Group: Flat Emerald Green */
+.btn-whatsapp-group {
+  background-color: #064e3b;
+  border: 1px solid #047857;
+}
+
+/* Ubicación Matriz: Pure White Button with Orange Text (Primary CTA) */
+.btn-maps-matriz {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.btn-maps-matriz .btn-text,
+.btn-maps-matriz .btn-icon,
+.btn-maps-matriz .btn-arrow {
+  color: #EF551E;
+}
+
+/* Ubicación Food Truck: Flat Slate Gray (#666567) */
+.btn-maps-foodtruck {
+  background-color: #666567;
+  border: 1px solid #7c7b7e;
+}
+
+/* Instagram: Dark Violet / Magenta */
+.btn-instagram {
+  background-color: #831843;
+  border: 1px solid #9d174d;
+}
+
+/* Facebook: Dark Royal Blue */
+.btn-facebook {
+  background-color: #1e3a8a;
+  border: 1px solid #1d4ed8;
+}
+
+/* TikTok: Matte Black */
+.btn-tiktok {
+  background-color: #000000;
+  border: 1px solid #27272a;
+}
+
+/* Call Button: Dark Slate Steel */
+.btn-call {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+}
+
+/* vCard Add Contact: Warm Cream (#FFE4B6) with Dark Text */
+.btn-vcard {
+  background-color: #FFE4B6;
+  border: 1px solid #FFE4B6;
+}
+.btn-vcard .btn-text,
+.btn-vcard .btn-icon,
+.btn-vcard .btn-arrow {
+  color: #18181B;
+}
+
+/* Utility Share / QR Bar */
+.utilities-bar {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.util-btn {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 9px 18px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.util-btn:hover {
+  background: #ffffff;
+  color: #EF551E;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.util-btn:active {
+  transform: scale(0.95);
+}
+
+/* Footer Section */
+.profile-footer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-name {
+  font-family: var(--font-brand-header);
+  font-size: 1.25rem;
+  color: #ffffff; /* Letras Blancas */
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.footer-phone {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-cream); /* Crema */
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.footer-phone:hover {
+  opacity: 0.85;
+}
+
+/* Lightbox Modal */
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 350;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal-card {
+  position: relative;
+  max-width: 92vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.85);
+  transition: transform 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.image-modal-backdrop.active .image-modal-card {
+  transform: scale(1);
+}
+
+.lightbox-img-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid var(--color-orange);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.9),
+    0 0 35px rgba(239, 85, 30, 0.4);
+  max-height: 76vh;
+  background: #ffffff;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  display: block;
+}
+
+.image-modal-caption {
+  font-family: var(--font-brand-header);
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.image-modal-close {
+  position: absolute;
+  top: -46px;
+  right: -10px;
+  color: #ffffff;
+  font-size: 2.2rem;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* QR Code Modal Dialog */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--color-card-dark);
+  border: 1px solid rgba(239, 85, 30, 0.4);
+  border-radius: 24px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.modal-backdrop.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: #ffffff;
+}
+
+.modal-title {
+  font-family: var(--font-brand-header);
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  color: var(--color-orange);
+}
+
+.modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  margin-bottom: 18px;
+}
+
+.qr-container {
+  background: var(--color-cream);
+  padding: 14px;
+  border-radius: 16px;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 14px;
+}
+
+.qr-img {
+  width: 180px;
+  height: 180px;
+  display: block;
+}
+
+.modal-info {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(20, 20, 24, 0.96);
+  color: var(--color-cream);
+  border: 1px solid var(--color-orange);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+  z-index: 400;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 480px), (max-height: 720px) {
+  .mobile-container {
+    padding-top: calc(20px + env(safe-area-inset-top, 0px));
+    padding-bottom: 28px;
+  }
+  .profile-header {
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+  .logo-wrapper {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+  .profile-logo {
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 8px;
+  }
+  .brand-title {
+    font-size: 1.85rem;
+    margin-bottom: 2px;
+  }
+  .brand-subtitle {
+    font-size: 1.4rem;
+  }
+  .links-section {
+    gap: 10px;
+    margin: 10px 0;
+  }
+  .btn-link {
+    height: 48px;
+    padding: 0 18px;
+  }
+  .btn-text {
+    font-size: 0.98rem;
+  }
+}
